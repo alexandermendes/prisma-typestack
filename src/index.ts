@@ -9,6 +9,7 @@ generatorHandler({
     return {
       defaultOutput: '.',
       prettyName: 'Prisma TypeStack',
+      requiresGenerators: ['prisma-client-js'],
     };
   },
 });
