@@ -11,6 +11,9 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
+  "bin": {
+    "prisma-typestack": "dist/generator.js"
+  },
   "author": "Alex Mendes",
   "license": "ISC",
   "repository": {
@@ -30,6 +33,18 @@
     "src",
     "dist"
   ],
+  "keywords": [
+    "prisma",
+    "prisma-client",
+    "prisma-schema",
+    "prisma-generator",
+    "class-validator",
+    "class-transformer"
+  ],
+  "peerDependencies": {
+    "class-validator": "*",
+    "class-transformer": "*"
+  },
   "dependencies": {
     "@prisma/client": "^4.12.0",
     "@prisma/generator-helper": "^4.12.0",
