@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "bin": {
-    "prisma-typestack": "dist/generator.js"
+    "prisma-typestack": "dist/generate.js"
   },
   "author": "Alex Mendes",
   "license": "ISC",
