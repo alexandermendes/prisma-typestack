@@ -221,12 +221,14 @@ const writeEnums = async (
 const getPrettierConfig = async () => {
   const prettierConfig = await prettier.resolveConfig(appRoot.path);
 
-  return prettierConfig ?? {
-    parser: 'typescript',
-    singleQuote: true,
-    trailingComma: 'all',
-  }
-}
+  return (
+    prettierConfig ?? {
+      parser: 'typescript',
+      singleQuote: true,
+      trailingComma: 'all',
+    }
+  );
+};
 
 export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
   const generatorOutputValue = generator.output?.value;
@@ -239,7 +241,15 @@ export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
   const { datamodel } = JSON.parse(JSON.stringify(dmmf)) as DMMF.Document;
 
   await Promise.all([
-    writeClasses(`${generatorOutputValue}/${MODELS_DIR}`, datamodel, prettierConfig),
-    writeEnums(`${generatorOutputValue}/${ENUMS_DIR}`, datamodel, prettierConfig),
+    writeClasses(
+      `${generatorOutputValue}/${MODELS_DIR}`,
+      datamodel,
+      prettierConfig,
+    ),
+    writeEnums(
+      `${generatorOutputValue}/${ENUMS_DIR}`,
+      datamodel,
+      prettierConfig,
+    ),
   ]);
 };
