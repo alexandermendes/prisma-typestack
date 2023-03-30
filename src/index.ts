@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
 import { generate } from './generate';
 
