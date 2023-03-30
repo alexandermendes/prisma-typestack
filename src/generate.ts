@@ -2,6 +2,7 @@ import { GeneratorOptions } from '@prisma/generator-helper';
 import { DMMF } from '@prisma/client/runtime';
 import prettier from 'prettier';
 import fse from 'fs-extra';
+import appRoot from 'app-root-path';
 import { ok } from 'assert';
 
 const defaultPrismaFieldTypes = [
@@ -183,42 +184,53 @@ const formatClass = (model: DMMF.Model) => `
   }
 `;
 
-const writeClasses = async (dir: string, datamodel: DMMF.Datamodel) => {
+const writeClasses = async (
+  dir: string,
+  datamodel: DMMF.Datamodel,
+  prettierConfig: prettier.Options,
+) => {
   fse.emptyDirSync(dir);
 
   await Promise.all(
     datamodel.models.map(async (model) => {
       fse.writeFileSync(
         `${dir}/${model.name}.ts`,
-        prettier.format(formatClass(model), {
-          parser: 'typescript',
-          singleQuote: true,
-          trailingComma: 'all',
-        }),
+        prettier.format(formatClass(model), prettierConfig),
       );
     }),
   );
 };
 
-const writeEnums = async (dir: string, datamodel: DMMF.Datamodel) => {
+const writeEnums = async (
+  dir: string,
+  datamodel: DMMF.Datamodel,
+  prettierConfig: prettier.Options,
+) => {
   fse.emptyDirSync(dir);
 
   await Promise.all(
     datamodel.enums.map(async (enumModel) => {
       fse.writeFileSync(
         `${dir}/${enumModel.name}.ts`,
-        prettier.format(formatEnum(enumModel), {
-          parser: 'typescript',
-          singleQuote: true,
-          trailingComma: 'all',
-        }),
+        prettier.format(formatEnum(enumModel), prettierConfig),
       );
     }),
   );
 };
 
+const getPrettierConfig = async () => {
+  const prettierConfig = await prettier.resolveConfig(appRoot.path);
+
+  return prettierConfig ?? {
+    parser: 'typescript',
+    singleQuote: true,
+    trailingComma: 'all',
+  }
+}
+
 export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
   const generatorOutputValue = generator.output?.value;
+  const prettierConfig = await getPrettierConfig();
 
   ok(generatorOutputValue, 'Missing generator configuration: output');
 
@@ -227,7 +239,7 @@ export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
   const { datamodel } = JSON.parse(JSON.stringify(dmmf)) as DMMF.Document;
 
   await Promise.all([
-    writeClasses(`${generatorOutputValue}/${MODELS_DIR}`, datamodel),
-    writeEnums(`${generatorOutputValue}/${ENUMS_DIR}`, datamodel),
+    writeClasses(`${generatorOutputValue}/${MODELS_DIR}`, datamodel, prettierConfig),
+    writeEnums(`${generatorOutputValue}/${ENUMS_DIR}`, datamodel, prettierConfig),
   ]);
 };
