@@ -1,6 +1,6 @@
 {
   "name": "prisma-typestack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates models from Prisma schemas using class-validator and class-transformer",
   "main": "index.js",
   "types": "dist/index.d.ts",
