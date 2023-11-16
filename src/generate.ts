@@ -90,10 +90,6 @@ const getDecorators = (field: DMMF.Field) => {
 const formatField = (field: DMMF.Field) => {
   let result = `${getDecorators(field).join('\n')}\n${field.name}`;
 
-  if (field.name === 'guid') {
-    console.log(field);
-  }
-
   result += `${isOptional(field) ? '?' : ''}: `;
 
   if (isDefaultPrismaFieldType(field.type)) {
