@@ -18,6 +18,6 @@ Add the following to your `prisma.schema` file.
 ```prisma
 generator class_validator {
   provider = "prisma-typestack"
-  output   = "./generated-models" // Optional
+  output   = "./src/generated-models" // Optional
 }
 ```
