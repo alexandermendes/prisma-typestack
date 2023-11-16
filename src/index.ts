@@ -4,7 +4,7 @@ import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
 import path from 'path';
 import { generate } from './generate';
 
-const defaultOutput = path.join(process.cwd(), './src/generated/models');
+const defaultOutput = path.join(process.cwd(), './src/generated');
 
 generatorHandler({
   async onGenerate(options: GeneratorOptions) {
