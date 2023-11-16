@@ -65,21 +65,22 @@ const getDecoratorArgs = (field: DMMF.Field) => {
 
 const getDecorators = (field: DMMF.Field) => {
   const decorators: string[] = [];
+  const decoratorArgs = getDecoratorArgs(field);
 
   if (isOptional(field)) {
     decorators.push('@IsOptional()');
   }
 
   if (isDefaultPrismaFieldType(field.type)) {
-    decorators.push(
-      `@${primitiveMapDecorators[field.type]}(${getDecoratorArgs(field)})`,
-    );
+    decorators.push(`@${primitiveMapDecorators[field.type]}(${decoratorArgs})`);
   } else if (field.kind === 'enum') {
-    decorators.push(`@IsEnum(${field.type}, ${getDecoratorArgs(field)})`);
+    decorators.push(
+      `@IsEnum(${field.type}${decoratorArgs ? `, ${decoratorArgs}` : ''})`,
+    );
   } else {
     decorators.push(
       `@Type(() => ${field.type})`,
-      `@ValidateNested(${getDecoratorArgs(field)})`,
+      `@ValidateNested(${decoratorArgs})`,
     );
   }
 
