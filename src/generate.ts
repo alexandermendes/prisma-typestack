@@ -1,6 +1,6 @@
 import { GeneratorOptions } from '@prisma/generator-helper';
 import { DMMF } from '@prisma/client/runtime';
-import prettier from 'prettier';
+import prettier, { type Options as PrettierOptions } from 'prettier';
 import fse from 'fs-extra';
 import appRoot from 'app-root-path';
 import { ok } from 'assert';
@@ -219,16 +219,21 @@ const writeEnums = async (
   );
 };
 
-const getPrettierConfig = async () => {
+const getPrettierConfig = async (): Promise<PrettierOptions> => {
   const prettierConfig = await prettier.resolveConfig(appRoot.path);
 
-  return (
-    prettierConfig ?? {
+  if (prettierConfig) {
+    return {
+      ...prettierConfig,
       parser: 'typescript',
-      singleQuote: true,
-      trailingComma: 'all',
-    }
-  );
+    };
+  }
+
+  return {
+    parser: 'typescript',
+    singleQuote: true,
+    trailingComma: 'all',
+  };
 };
 
 export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
