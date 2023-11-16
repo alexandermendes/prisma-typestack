@@ -240,16 +240,15 @@ export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
 
   const { datamodel } = JSON.parse(JSON.stringify(dmmf)) as DMMF.Document;
 
-  await Promise.all([
-    writeClasses(
-      `${generatorOutputValue}/${MODELS_DIR}`,
-      datamodel,
-      prettierConfig,
-    ),
-    writeEnums(
-      `${generatorOutputValue}/${ENUMS_DIR}`,
-      datamodel,
-      prettierConfig,
-    ),
-  ]);
+  await writeEnums(
+    `${generatorOutputValue}/${ENUMS_DIR}`,
+    datamodel,
+    prettierConfig,
+  );
+
+  await writeClasses(
+    `${generatorOutputValue}/${MODELS_DIR}`,
+    datamodel,
+    prettierConfig,
+  );
 };
