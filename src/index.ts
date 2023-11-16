@@ -9,7 +9,7 @@ generatorHandler({
   },
   onManifest() {
     return {
-      defaultOutput: '.',
+      defaultOutput: './generated-models',
       prettyName: 'Prisma TypeStack',
       requiresGenerators: ['prisma-client-js'],
     };
