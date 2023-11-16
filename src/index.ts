@@ -1,7 +1,10 @@
 #! /usr/bin/env node
 
 import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
+import path from 'path';
 import { generate } from './generate';
+
+const defaultOutput = path.join(process.cwd(), './src/generated/models');
 
 generatorHandler({
   async onGenerate(options: GeneratorOptions) {
@@ -9,7 +12,7 @@ generatorHandler({
   },
   onManifest() {
     return {
-      defaultOutput: './generated',
+      defaultOutput,
       prettyName: 'Prisma TypeStack',
       requiresGenerators: ['prisma-client-js'],
     };
