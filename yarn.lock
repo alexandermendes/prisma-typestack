@@ -1309,36 +1309,36 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@prisma/client@^4.12.0":
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.12.0.tgz#119b692888b1fe0fd3305c7d0e0ac48520aa6839"
-  integrity sha512-j9/ighfWwux97J2dS15nqhl60tYoH8V0IuSsgZDb6bCFcQD3fXbXmxjYC8GHhIgOk3lB7Pq+8CwElz2MiDpsSg==
+"@prisma/client@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-5.6.0.tgz#1c15932250d5658fe0127e62faf4ecd96a877259"
+  integrity sha512-mUDefQFa1wWqk4+JhKPYq8BdVoFk9NFMBXUI8jAkBfQTtgx8WPx02U2HB/XbAz3GSUJpeJOKJQtNvaAIDs6sug==
   dependencies:
-    "@prisma/engines-version" "4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7"
+    "@prisma/engines-version" "5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee"
 
-"@prisma/debug@4.12.0":
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-4.12.0.tgz#e52ab99a0f5f06c57ea10a5491dba25e9a96f7be"
-  integrity sha512-mBTAGClWnxJpFSDSLF4+sVfVgS+KIs+y/Ncu3e+JkJ/gfJ1f591nRrclV1EmxnfTcvd8xoomhbiTy5mYDzzPEA==
+"@prisma/debug@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-5.6.0.tgz#e4552d00baa44331352c0e812e46162cc203a645"
+  integrity sha512-rVQuC5/4FvGvAwUEISumRctLnW2VGCzp8yfzqZhupYtKWWjAhP7amAMYg8wjfuBJ9eARfVDTG88sjelBdboy0g==
   dependencies:
-    "@types/debug" "4.1.7"
+    "@types/debug" "4.1.12"
     debug "4.3.4"
     strip-ansi "6.0.1"
 
-"@prisma/engines-version@4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7":
-  version "4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7"
-  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7.tgz#51a1cc5c886564b542acde64a873645d0dee2566"
-  integrity sha512-JIHNj5jlXb9mcaJwakM0vpgRYJIAurxTUqM0iX0tfEQA5XLZ9ONkIckkhuAKdAzocZ+80GYg7QSsfpjg7OxbOA==
+"@prisma/engines-version@5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee":
+  version "5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-5.6.0-32.e95e739751f42d8ca026f6b910f5a2dc5adeaeee.tgz#57b003ab5e1ea1523b5cdd7f06b24ebcf5c7fd8c"
+  integrity sha512-UoFgbV1awGL/3wXuUK3GDaX2SolqczeeJ5b4FVec9tzeGbSWJboPSbT0psSrmgYAKiKnkOPFSLlH6+b+IyOwAw==
 
-"@prisma/generator-helper@^4.12.0":
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-4.12.0.tgz#50f6240b3c014bcf114ad225d32741b11f97ce7e"
-  integrity sha512-sB4dkjylb6tMrDZ3GMHPRDKSKOSP86e5yoOrWuJGa0W30LPeCnOzwyNtqUYYdgV/xuIcTS3TGAYSfryeyeU2JA==
+"@prisma/generator-helper@^5":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-5.6.0.tgz#bbe5cc586983aad0032da69b67512ac30ab18e2d"
+  integrity sha512-trrLzQQAhVhpmrr+I33QoZXY+4uY3lJL8qUUm8QAtk6iIY0f9Y2zgoEbHa9UfUkHyx1kujRfgi16C0mUeF+DTA==
   dependencies:
-    "@prisma/debug" "4.12.0"
-    "@types/cross-spawn" "6.0.2"
-    chalk "4.1.2"
+    "@prisma/debug" "5.6.0"
+    "@types/cross-spawn" "6.0.5"
     cross-spawn "7.0.3"
+    kleur "4.1.5"
 
 "@semantic-release/commit-analyzer@^8.0.1":
   version "8.0.1"
@@ -1578,17 +1578,17 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/cross-spawn@6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.2.tgz#168309de311cd30a2b8ae720de6475c2fbf33ac7"
-  integrity sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==
+"@types/cross-spawn@6.0.5":
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.5.tgz#1f9a5311e0e54d6f88017ba6d564a958d1aa359f"
+  integrity sha512-wsIMP68FvGXk+RaWhraz6Xp4v7sl4qwzHAmtPaJEN2NRTXXI9LtFawUpeTsBNL/pd6QoLStdytCaAyiK7AEd/Q==
   dependencies:
     "@types/node" "*"
 
-"@types/debug@4.1.7":
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
-  integrity sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==
+"@types/debug@4.1.12":
+  version "4.1.12"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.12.tgz#a155f21690871953410df4b6b6f53187f0500917"
+  integrity sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==
   dependencies:
     "@types/ms" "*"
 
@@ -2446,7 +2446,7 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@4.1.2, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -5066,6 +5066,11 @@ kind-of@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
+
+kleur@4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
+  integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
 kleur@^3.0.3:
   version "3.0.3"

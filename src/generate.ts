@@ -1,5 +1,4 @@
-import { GeneratorOptions } from '@prisma/generator-helper';
-import { DMMF } from '@prisma/client/runtime';
+import { GeneratorOptions, DMMF } from '@prisma/generator-helper';
 import prettier, { type Options as PrettierOptions } from 'prettier';
 import fse from 'fs-extra';
 import appRoot from 'app-root-path';
