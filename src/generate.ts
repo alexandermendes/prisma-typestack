@@ -180,12 +180,21 @@ const formatClass = (model: DMMF.Model) => `
   }
 `;
 
+const formatExports = (
+  datamodel: DMMF.Datamodel,
+  key: 'enums' | 'models',
+  dir: string,
+) =>
+  datamodel[key].map(
+    ({ name }) => `export { ${name} } from './${dir}/${name}';`,
+  );
+
 const writeClasses = async (
   dir: string,
   datamodel: DMMF.Datamodel,
   prettierConfig: prettier.Options,
 ) => {
-  fse.emptyDirSync(dir);
+  fse.ensureDirSync(dir);
 
   await Promise.all(
     datamodel.models.map(async (model) => {
@@ -202,7 +211,7 @@ const writeEnums = async (
   datamodel: DMMF.Datamodel,
   prettierConfig: prettier.Options,
 ) => {
-  fse.emptyDirSync(dir);
+  fse.ensureDirSync(dir);
 
   await Promise.all(
     datamodel.enums.map(async (enumModel) => {
@@ -211,6 +220,23 @@ const writeEnums = async (
         prettier.format(formatEnum(enumModel), prettierConfig),
       );
     }),
+  );
+};
+
+const writeIndex = async (
+  dir: string,
+  datamodel: DMMF.Datamodel,
+  prettierConfig: prettier.Options,
+) => {
+  fse.writeFileSync(
+    `${dir}/index.ts`,
+    prettier.format(
+      [
+        formatExports(datamodel, 'enums', ENUMS_DIR),
+        formatExports(datamodel, 'models', MODELS_DIR),
+      ].join('\n'),
+      prettierConfig,
+    ),
   );
 };
 
@@ -252,4 +278,6 @@ export const generate = async ({ generator, dmmf }: GeneratorOptions) => {
     datamodel,
     prettierConfig,
   );
+
+  await writeIndex(generatorOutputValue, datamodel, prettierConfig);
 };
