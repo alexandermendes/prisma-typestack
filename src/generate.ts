@@ -232,8 +232,8 @@ const writeIndex = async (
     `${dir}/index.ts`,
     prettier.format(
       [
-        formatExports(datamodel, 'enums', ENUMS_DIR),
-        formatExports(datamodel, 'models', MODELS_DIR),
+        ...formatExports(datamodel, 'enums', ENUMS_DIR),
+        ...formatExports(datamodel, 'models', MODELS_DIR),
       ].join('\n'),
       prettierConfig,
     ),
