@@ -44,7 +44,8 @@
   "peerDependencies": {
     "@prisma/client": "^5",
     "class-transformer": "*",
-    "class-validator": "*"
+    "class-validator": "*",
+    "reflect-metadata": "*"
   },
   "dependencies": {
     "@prisma/generator-helper": "^5",
