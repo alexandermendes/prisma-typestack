@@ -232,7 +232,7 @@ const writeIndex = async (
     `${dir}/index.ts`,
     prettier.format(
       [
-        "import 'reflect-metadata';",
+        "import 'reflect-metadata';\n",
         ...formatExports(datamodel, 'enums', ENUMS_DIR),
         ...formatExports(datamodel, 'models', MODELS_DIR),
       ].join('\n'),
